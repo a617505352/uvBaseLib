@@ -78,15 +78,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CircularQueue.h" />
-    <ClInclude Include="LockingQueue.h" />
-    <ClInclude Include="LOG.h" />
     <ClInclude Include="MessageHandle.h" />
+    <ClInclude Include="MessageThread.h" />
+    <ClInclude Include="TESTMessagehandle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CircularQueue.cpp" />
-    <ClCompile Include="LOG.c" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageHandle.cpp" />
+    <ClCompile Include="MessageThread.cpp" />
+    <ClCompile Include="TESTMessagehandle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

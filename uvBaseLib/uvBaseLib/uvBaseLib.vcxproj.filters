@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CircularQueue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="LockingQueue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MessageHandle.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="LOG.h">
+    <ClInclude Include="MessageThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTMessagehandle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CircularQueue.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MessageHandle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="LOG.c">
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageThread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TESTMessagehandle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
