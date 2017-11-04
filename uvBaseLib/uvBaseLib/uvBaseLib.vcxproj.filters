@@ -13,30 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\MessageQueue">
+      <UniqueIdentifier>{20a93c62-95f1-4faa-977a-4cae7d9620ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\MessageQueue">
+      <UniqueIdentifier>{ff24b2bc-05ee-4680-9b08-b671f8399496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\MessageHandle">
+      <UniqueIdentifier>{1fce69e9-dc26-41f4-8208-0cee99cfa308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\MessageHandle">
+      <UniqueIdentifier>{6237407f-8da7-4410-aa8c-4c0cb65d8cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Global">
+      <UniqueIdentifier>{fabe875d-4b5f-4ae5-b5bf-a05f2f0d5084}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MessageQueue.h">
+      <Filter>头文件\MessageQueue</Filter>
+    </ClInclude>
     <ClInclude Include="MessageHandle.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\MessageHandle</Filter>
     </ClInclude>
     <ClInclude Include="MessageThread.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\MessageHandle</Filter>
     </ClInclude>
-    <ClInclude Include="TESTMessagehandle.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Connect.h">
+      <Filter>头文件\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="LockingQueue.h">
+      <Filter>头文件\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>头文件\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MessageHandle.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MessageQueue.cpp">
+      <Filter>源文件\MessageQueue</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="MessageHandle.cpp">
+      <Filter>源文件\MessageHandle</Filter>
     </ClCompile>
     <ClCompile Include="MessageThread.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TESTMessagehandle.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\MessageHandle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

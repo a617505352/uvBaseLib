@@ -23,7 +23,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -78,15 +78,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Connect.h" />
+    <ClInclude Include="LockingQueue.h" />
     <ClInclude Include="MessageHandle.h" />
+    <ClInclude Include="MessageQueue.h" />
     <ClInclude Include="MessageThread.h" />
-    <ClInclude Include="TESTMessagehandle.h" />
+    <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageHandle.cpp" />
+    <ClCompile Include="MessageQueue.cpp" />
     <ClCompile Include="MessageThread.cpp" />
-    <ClCompile Include="TESTMessagehandle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
