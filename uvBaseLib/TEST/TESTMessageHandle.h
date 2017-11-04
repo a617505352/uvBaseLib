@@ -10,7 +10,7 @@ public:
 	~CManager();
 
 public:
-	void start();
+	void Start();
 
 public:
 	void handle_message(long session_id, int message_type);
@@ -27,7 +27,7 @@ public:
 	~CLivechannel();
 
 public:
-	void start();
+	void Start();
 
 public:
 	void handle_message(long session_id, int message_type);
@@ -44,7 +44,7 @@ public:
 	~CClient();
 
 public:
-	void start();
+	void Start();
 
 public:
 	void handle_message(long session_id, int message_type);

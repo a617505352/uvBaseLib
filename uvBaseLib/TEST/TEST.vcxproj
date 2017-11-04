@@ -83,6 +83,7 @@
     <ClCompile Include="TESTMessageQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Configure.h" />
     <ClInclude Include="TESTMessageHandle.h" />
     <ClInclude Include="TESTMessageQueue.h" />
   </ItemGroup>

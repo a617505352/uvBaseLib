@@ -113,3 +113,32 @@ void TestPlayer::looper_thread(void)
 	Sleep(m_duration);
 	CMessageQueue::GetInstance().Notify(m_owner_id, m_duration, 0);
 }
+
+///////////////////////////////////////////////////////////////////////////
+
+#include "Configure.h"
+
+#ifdef TEST_MESSAGE_QUEUE
+
+int main(int argc, char*argv)
+{
+	TestUI* ui = new TestUI;
+	ui->Start();
+
+	while (true)
+	{
+		char c;
+		scanf("%c", &c);
+
+		if (c == 'q' || c == 'Q'){
+			break;
+		}
+	}
+
+	if (ui){
+		delete ui;
+	}
+	return 0;
+}
+
+#endif
