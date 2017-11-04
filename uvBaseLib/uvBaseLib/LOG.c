@@ -987,11 +987,6 @@ int SetLogStyles( LOG *g , long log_styles , funcLogStyle *pfuncLogStyle )
 		return LOG_RETURN_ERROR_PARAMETER;
 	
 	g->log_styles = log_styles ;
-	if( g->log_styles == LOG_STYLE_CALLBACK )
-	{
-		SetLogStyleFuncDirectly( g , pfuncLogStyle );
-		return 0;
-	}
 	
 	/* 构造行风格函数数组 */
 	g->style_func_count = 0 ;
@@ -1001,41 +996,10 @@ int SetLogStyles( LOG *g , long log_styles , funcLogStyle *pfuncLogStyle )
 		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_DATETIMEMS ;
 		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SEPARATOR ;
 	}
-	else if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_DATETIME ) )
-	{
-		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_DATETIME ;
-		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SEPARATOR ;
-	}
-	else if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_DATE ) )
-	{
-		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_DATE ;
-		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SEPARATOR ;
-	}
 	if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_LOGLEVEL ) )
 	{
 		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_LOGLEVEL ;
 		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SEPARATOR ;
-	}
-	if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL1 )
-		|| TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL2 )
-		|| TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL3 ) )
-	{
-		if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL1 ) )
-		{
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_CUSTLABEL1 ;
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SPACE ;
-		}
-		if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL2 ) )
-		{
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_CUSTLABEL2 ;
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SPACE ;
-		}
-		if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_CUSTLABEL3 ) )
-		{
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_CUSTLABEL3 ;
-			g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SPACE ;
-		}
-		g->pfuncLogStyles[ g->style_func_count++ ] = LogStyle_SEPARATOR2 ;
 	}
 	if( TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_PID )
 		|| TEST_ATTRIBUTE( g->log_styles , LOG_STYLE_TID )
@@ -2270,11 +2234,7 @@ int ConvertLogLevel_itoa( int log_level , char **log_level_desc )
 
 int ConvertLogStyle_atol( char *line_style_desc , long *p_line_style )
 {
-	if( strcmp( line_style_desc , "DATE" ) == 0 )
-		(*p_line_style) = LOG_STYLE_DATE ;
-	else if( strcmp( line_style_desc , "DATETIME" ) == 0 )
-		(*p_line_style) = LOG_STYLE_DATETIME ;
-	else if( strcmp( line_style_desc , "DATETIMEMS" ) == 0 )
+	if( strcmp( line_style_desc , "DATETIMEMS" ) == 0 )
 		(*p_line_style) = LOG_STYLE_DATETIMEMS ;
 	else if( strcmp( line_style_desc , "LOGLEVEL" ) == 0 )
 		(*p_line_style) = LOG_STYLE_LOGLEVEL ;
@@ -2288,12 +2248,6 @@ int ConvertLogStyle_atol( char *line_style_desc , long *p_line_style )
 		(*p_line_style) = LOG_STYLE_FORMAT ;
 	else if( strcmp( line_style_desc , "NEWLINE" ) == 0 )
 		(*p_line_style) = LOG_STYLE_NEWLINE ;
-	else if( strcmp( line_style_desc , "CUSTLABEL1" ) == 0 )
-		(*p_line_style) = LOG_STYLE_CUSTLABEL1 ;
-	else if( strcmp( line_style_desc , "CUSTLABEL2" ) == 0 )
-		(*p_line_style) = LOG_STYLE_CUSTLABEL2 ;
-	else if( strcmp( line_style_desc , "CUSTLABEL3" ) == 0 )
-		(*p_line_style) = LOG_STYLE_CUSTLABEL3 ;
 	else
 		return LOG_RETURN_ERROR_PARAMETER;
 	

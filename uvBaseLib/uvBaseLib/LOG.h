@@ -1,14 +1,5 @@
-#ifndef _H_LOG_
-#define _H_LOG_
-
-/*
- * iLOG3 - log function library written in c
- * author	: calvin
- * email	: calvinwilliams.c@gmail.com
- * LastVersion	: v1.0.11
- *
- * Licensed under the LGPL v2.1, see the file LICENSE in base directory.
- */
+#ifndef _LOG_H_
+#define _LOG_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -84,22 +75,16 @@ struct tm *localtime_r(const time_t *timep, struct tm *result);
 #define LOG_LEVEL_DEFAULT	LOG_LEVEL_NOLOG
 
 /* 行日志风格组合宏 */ /* Line logging combination style macros */
-#define LOG_STYLE_DATE		1	/* 日期"YYYY-MM-DD" */ /* date "YYYY-MM-DD" */
-#define LOG_STYLE_DATETIME	2	/* 日期时间"YYYY-MM-DD hh:mm:ss" */ /* date time "YYYY-MM-DD hh:mm:ss" */
 #define LOG_STYLE_DATETIMEMS	4	/* 日期时间毫秒"YYYY-MM-DD hh:mm:ss.3ms"（日期时间类宏互斥，优先自动选用信息量最多的） */ /* date time "YYYY-MM-DD hh:mm:ss.3ms" */
-#define LOG_STYLE_LOGLEVEL	8	/* 日志等级 */ /* log level */
-#define LOG_STYLE_PID		16	/* 进程id */ /* pid */
-#define LOG_STYLE_TID		32	/* 线程id */ /* tid */
-#define LOG_STYLE_SOURCE	64	/* "源代码文件名:源代码行号" */ /* source file name and row number */
-#define LOG_STYLE_FORMAT	128	/* 应用日志段 */ /* application text */
-#define LOG_STYLE_NEWLINE	256	/* 换行 */ /* new line */
-#define LOG_STYLE_CUSTLABEL1	512	/* 自定义标签1 */ /* custom label1 */
-#define LOG_STYLE_CUSTLABEL2	1024	/* 自定义标签2 */ /* custom label2 */
-#define LOG_STYLE_CUSTLABEL3	2048	/* 自定义标签3 */ /* custom label3 */
-#define LOG_STYLE_CALLBACK	4096	/* （使用自定义行日志风格回调函数） */ /* using custom log style callback function  */
+#define LOG_STYLE_LOGLEVEL	8		/* 日志等级 */ /* log level */
+#define LOG_STYLE_PID		16		/* 进程id */ /* pid */
+#define LOG_STYLE_TID		32		/* 线程id */ /* tid */
+#define LOG_STYLE_SOURCE	64		/* "源代码文件名:源代码行号" */ /* source file name and row number */
+#define LOG_STYLE_FORMAT	128		/* 应用日志段 */ /* application text */
+#define LOG_STYLE_NEWLINE	256		/* 换行 */ /* new line */
 #define LOG_STYLE_DEFAULT (LOG_STYLE_DATETIMEMS | LOG_STYLE_LOGLEVEL | LOG_STYLE_TID | LOG_STYLE_SOURCE | LOG_STYLE_FORMAT | LOG_STYLE_NEWLINE)
 
-#define LOG_STYLES_DEFAULT	0
+#define LOG_STYLES_DEFAULT 0
 
 /* 其它宏 */ /* other macros */
 #ifndef MAXLEN_FILENAME

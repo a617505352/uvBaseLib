@@ -21,6 +21,9 @@
     <ClCompile Include="TESTMessageQueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TESTLog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TESTMessageHandle.h">
@@ -30,6 +33,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Configure.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTLog.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

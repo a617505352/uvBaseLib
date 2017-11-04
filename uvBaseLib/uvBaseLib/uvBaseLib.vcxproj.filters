@@ -48,6 +48,9 @@
     <ClInclude Include="Singleton.h">
       <Filter>头文件\Global</Filter>
     </ClInclude>
+    <ClInclude Include="LOG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -58,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="MessageThread.cpp">
       <Filter>源文件\MessageHandle</Filter>
+    </ClCompile>
+    <ClCompile Include="LOG.c">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

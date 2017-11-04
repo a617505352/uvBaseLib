@@ -63,11 +63,12 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../uvBaseLib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,11 +80,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TESTLog.cpp" />
     <ClCompile Include="TESTMessageHandle.cpp" />
     <ClCompile Include="TESTMessageQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configure.h" />
+    <ClInclude Include="TESTLog.h" />
     <ClInclude Include="TESTMessageHandle.h" />
     <ClInclude Include="TESTMessageQueue.h" />
   </ItemGroup>
