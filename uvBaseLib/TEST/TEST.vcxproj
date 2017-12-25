@@ -80,12 +80,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TESTiLog.cpp" />
     <ClCompile Include="TESTLog.cpp" />
     <ClCompile Include="TESTMessageHandle.cpp" />
     <ClCompile Include="TESTMessageQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configure.h" />
+    <ClInclude Include="TESTiLog.h" />
     <ClInclude Include="TESTLog.h" />
     <ClInclude Include="TESTMessageHandle.h" />
     <ClInclude Include="TESTMessageQueue.h" />

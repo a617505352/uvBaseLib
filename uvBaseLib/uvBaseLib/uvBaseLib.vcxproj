@@ -79,15 +79,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Connect.h" />
+    <ClInclude Include="iLog.h" />
     <ClInclude Include="LockingQueue.h" />
     <ClInclude Include="LOG.h" />
+    <ClInclude Include="logging.h" />
     <ClInclude Include="MessageHandle.h" />
     <ClInclude Include="MessageQueue.h" />
     <ClInclude Include="MessageThread.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="iLog.c" />
     <ClCompile Include="LOG.c" />
+    <ClCompile Include="logging.cpp" />
     <ClCompile Include="MessageHandle.cpp" />
     <ClCompile Include="MessageQueue.cpp" />
     <ClCompile Include="MessageThread.cpp" />

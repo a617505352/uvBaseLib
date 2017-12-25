@@ -28,6 +28,12 @@
     <Filter Include="头文件\Global">
       <UniqueIdentifier>{fabe875d-4b5f-4ae5-b5bf-a05f2f0d5084}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Log">
+      <UniqueIdentifier>{6f8bd5f5-2a29-48a2-92a7-ec70884d25b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Log">
+      <UniqueIdentifier>{37925200-183d-42a3-bd56-2cdd28a4dc93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageQueue.h">
@@ -49,7 +55,13 @@
       <Filter>头文件\Global</Filter>
     </ClInclude>
     <ClInclude Include="LOG.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="iLog.h">
+      <Filter>头文件\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="logging.h">
+      <Filter>头文件\Log</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +75,13 @@
       <Filter>源文件\MessageHandle</Filter>
     </ClCompile>
     <ClCompile Include="LOG.c">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="iLog.c">
+      <Filter>源文件\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="logging.cpp">
+      <Filter>源文件\Log</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
