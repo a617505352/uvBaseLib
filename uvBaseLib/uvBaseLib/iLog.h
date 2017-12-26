@@ -79,6 +79,8 @@ typedef enum log_print_type {
 #define DEFAULT_LOG_SAVE_TYPE	ILOG_SAVE_FILE
 
 
+typedef void(*logCallback)(int, const char*, va_list);
+
 typedef struct log_handle{
 
 	log_save_type_e		save_type;
@@ -86,16 +88,21 @@ typedef struct log_handle{
 	char				log_path[LOG_MAX_FILE_PATH_LENGTH];
 
 	FILE*				fd;
+	logCallback			callback;
 
 }log_handle_t;
 
 //////////////////////////////////////////////////////////////////////////////////////
 
-log_handle_t* LogInit(char* filename);
+log_handle_t* LogInit();
 
 void LogUninit();
 
 void LogThreshold(log_print_type_e level);
+
+void LogSetCallback(void(*callback)(int, const char*, va_list));
+
+void LogSetPath(char* filename);
 
 void LogDebug(char *filename, long fileline, const char* format, ...);
 

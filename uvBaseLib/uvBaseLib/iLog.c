@@ -6,16 +6,15 @@ static void pre_write_log(char *filename, long fileline, const log_print_type_e 
 static void write_log(const char* format, ...);
 static const char* type_to_string(const log_print_type_e type);
 
-log_handle_t* LogInit(char* filename)
+log_handle_t* LogInit()
 {
 	g_log_handle = (log_handle_t*)malloc(sizeof(log_handle_t));
 	memset(g_log_handle, 0, sizeof(log_handle_t));
 
+	g_log_handle->fd = NULL;
+	g_log_handle->callback = NULL;
 	g_log_handle->print_type = DEFAULT_LOG_PRINT_LEVEL;
 	g_log_handle->save_type = DEFAULT_LOG_SAVE_TYPE;
-
-	memcpy(g_log_handle->log_path, filename, LOG_MAX_FILE_PATH_LENGTH);
-	g_log_handle->fd = fopen(filename, "wb+");
 
 	return g_log_handle;
 }
@@ -37,6 +36,21 @@ void LogThreshold(log_print_type_e level)
 {
 	if (g_log_handle) {
 		g_log_handle->print_type = level;
+	}
+}
+
+void LogSetCallback(void(*callback)(int, const char*, va_list))
+{
+	if (g_log_handle) {
+		g_log_handle->callback = callback;
+	}
+}
+
+void LogSetPath(char* filename)
+{
+	if (g_log_handle) {
+		memcpy(g_log_handle->log_path, filename, LOG_MAX_FILE_PATH_LENGTH);
+		g_log_handle->fd = fopen(filename, "wb+");
 	}
 }
 
@@ -82,7 +96,15 @@ void LogFatal(char *filename, long fileline, const char* format, ...)
 
 static void pre_write_log(char *filename, long fileline, const log_print_type_e type, const char* format, const va_list varArgs)
 {
+	if (g_log_handle == NULL) {
+		return;
+	}
 	if (type > g_log_handle->print_type) {
+		return;
+	}
+
+	if (g_log_handle->callback != NULL) {
+		g_log_handle->callback(type, format, varArgs);
 		return;
 	}
 

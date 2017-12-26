@@ -74,19 +74,57 @@ char* CTestiLog::key_to_string(int key)
 
 /////////////////////////////////////////////////////////////////////////////////
 
-#include "Configure.h"
+#include "logging.h"
 
-#ifdef TEST_ILOG
+static void log_callback(int level, const char * szFmt, va_list varg)
+{
+	char line[1024] = { 0 };
+	vsnprintf(line, sizeof(line), szFmt, varg);
+
+	switch (level) {
+	case ILOG_TYPE_DEBUG:
+		Log::Debug("%s", line);
+		break;
+	case ILOG_TYPE_INFO:
+		Log::Info("%s", line);
+		break;
+	case ILOG_TYPE_WARN:
+		Log::Warn("%s", line);
+		break;
+	case ILOG_TYPE_ERROR:
+		Log::Error("%s", line);
+		break;
+	case ILOG_TYPE_FATAL:
+		Log::Fatal("%s", line);
+		break;
+	default:
+		Log::Info("%s", line);
+		break;
+	}
+	return;
+}
+
+#define LOG_CALLBACK_TEST 1
 
 int main(int argc, char* argv)
 {
 	log_handle_t *g = NULL;
-	g = LogInit("iLogTest.log");
+	g = LogInit();
 	if (g == NULL) {
-		printf("create iLog Handle errno, errno number=[%d]\n", errno);
+		printf("create iLog3 Handle errno, errno number=[%d]\n", errno);
 		return -1;
 	}
 	LogThreshold(ILOG_TYPE_DEBUG);
+
+#ifdef LOG_CALLBACK_TEST
+	LogSetCallback(log_callback);
+
+	std::string url = "./iLogDemo.log";
+	Log::Initialise(url);
+	Log::SetThreshold(Log::LOG_TYPE_DEBUG);
+#else
+	LogSetPath("iLogTest.log");
+#endif
 
 	CTestiLog* log = new CTestiLog;
 	log->Start();
@@ -105,10 +143,12 @@ int main(int argc, char* argv)
 		delete log;
 	}
 
+#ifdef LOG_CALLBACK_TEST
+	Log::Finalise();
+#endif
+
 	LogUninit();
-	printf("destroy iLog3 handle.\n");
+	printf("destroy iLog handle.\n");
 
 	return 0;
 }
-
-#endif
