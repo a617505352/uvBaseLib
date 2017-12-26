@@ -31,12 +31,12 @@
 */
 class Log {
 public:
-	static const enum Type {
+	enum Type {
 		LOG_TYPE_FATAL,
 		LOG_TYPE_ERROR,
 		LOG_TYPE_WARN,
 		LOG_TYPE_INFO,
-		LOG_TYPE_DEBUG
+		LOG_TYPE_DEBUG,
 	};
 
 	static const char* TypeToString(const Type& type);

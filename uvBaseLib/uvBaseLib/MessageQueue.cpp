@@ -1,5 +1,4 @@
 #include <string>
-#include <windows.h>
 #include "MessageQueue.h"
 
 CMessageQueue* volatile CMessageQueue::m_instance = NULL;

@@ -1,4 +1,8 @@
+#ifdef WIN32
 #include <windows.h>
+#else
+#include <unistd.h>
+#endif
 #include "TESTMessagehandle.h"
 
 CManager::CManager()
@@ -40,7 +44,11 @@ void CLivechannel::Start()
 	CClient* client = new CClient;
 	client->SetOwner(this);
 	client->Start();
+#ifdef WIN32
 	Sleep(100);
+#else
+	usleep(1000 * 100);
+#endif
 }
 
 void CLivechannel::handle_message(long session_id, int message_type)

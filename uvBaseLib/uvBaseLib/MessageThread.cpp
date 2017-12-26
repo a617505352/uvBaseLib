@@ -1,4 +1,3 @@
-#include <windows.h>
 #include "MessageThread.h"
 #include "MessageHandle.h"
 

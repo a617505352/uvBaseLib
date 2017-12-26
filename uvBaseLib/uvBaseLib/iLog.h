@@ -52,6 +52,9 @@
 #if ( defined _WIN32 )
 #define LOG_NEWLINE		"\r\n"
 #define LOG_NEWLINE_LEN		2
+#define snprintf		_snprintf
+#define getpid			GetCurrentProcessId
+#define pthread_self	GetCurrentThreadId
 #elif ( defined __unix ) || ( defined _AIX ) || ( defined __linux__ ) || ( defined __hpux )
 #define LOG_NEWLINE		"\n"
 #define LOG_NEWLINE_LEN		1

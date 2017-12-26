@@ -104,7 +104,7 @@ static void log_callback(int level, const char * szFmt, va_list varg)
 	return;
 }
 
-#define LOG_CALLBACK_TEST 1
+#define LOG_CALLBACK_TEST 0
 
 int main(int argc, char* argv)
 {
@@ -116,7 +116,7 @@ int main(int argc, char* argv)
 	}
 	LogThreshold(ILOG_TYPE_DEBUG);
 
-#ifdef LOG_CALLBACK_TEST
+#if LOG_CALLBACK_TEST
 	LogSetCallback(log_callback);
 
 	std::string url = "./iLogDemo.log";
@@ -143,7 +143,7 @@ int main(int argc, char* argv)
 		delete log;
 	}
 
-#ifdef LOG_CALLBACK_TEST
+#if LOG_CALLBACK_TEST
 	Log::Finalise();
 #endif
 

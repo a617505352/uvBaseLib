@@ -49,8 +49,21 @@ void LogSetCallback(void(*callback)(int, const char*, va_list))
 void LogSetPath(char* filename)
 {
 	if (g_log_handle) {
-		memcpy(g_log_handle->log_path, filename, LOG_MAX_FILE_PATH_LENGTH);
-		g_log_handle->fd = fopen(filename, "wb+");
+		int length = strlen(filename);
+		memcpy(g_log_handle->log_path, filename, length - 4);
+
+		char time_buf[DAFAULT_LINE_SIZE] = { 0 };
+		time_t timestamp;
+		time(&timestamp);
+		struct tm *local_time = localtime(&timestamp);
+		snprintf(time_buf, sizeof(time_buf), "%4d_%2d_%2d_%2d_%2d_%2d", local_time->tm_year + 1900, local_time->tm_mon + 1,
+			local_time->tm_mday, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+
+		unsigned long pid = (long)getpid();
+		char filepath[MAX_LINE_SIZE + DAFAULT_LINE_SIZE] = { 0 };
+		snprintf(filepath, sizeof(filepath), "%s_%lu_%s.log", g_log_handle->log_path, pid, time_buf);
+
+		g_log_handle->fd = fopen(filepath, "wb+");
 	}
 }
 
@@ -109,41 +122,28 @@ static void pre_write_log(char *filename, long fileline, const log_print_type_e 
 	}
 
 	char log_message[MAX_LINE_SIZE] = { 0 };
-#ifdef WIN32
 	vsnprintf(log_message, sizeof(log_message), format, varArgs);
-#else
-	snprintf(log_message, sizeof(log_message), format, varArgs);
-#endif
 
 	char time_buf[DAFAULT_LINE_SIZE] = { 0 };
 #ifdef WIN32
 	SYSTEMTIME win_time;
 	GetLocalTime(&win_time);
-	_snprintf(time_buf, DAFAULT_LINE_SIZE, "[%02d:%02d:%02d.%03d %02d/%02d]",
+	snprintf(time_buf, DAFAULT_LINE_SIZE, "[%02d:%02d:%02d.%03d %02d/%02d]",
 		win_time.wHour, win_time.wMinute, win_time.wSecond, win_time.wMilliseconds, win_time.wMonth, win_time.wDay);
 #else
-	time_t timestamp;
-	time(&timestamp);
-	strftime(time_buf, sizeof(buffer), "%X %x", localtime(&timestamp));
+	struct timeval tv;
+	gettimeofday (&tv, NULL);
+	struct tm *ptm = localtime (&tv.tv_sec);
+	snprintf(time_buf, sizeof(time_buf), "[%02d:%02d:%02d.%03d %02d/%02d]",ptm->tm_hour, ptm->tm_min, ptm->tm_sec,
+		tv.tv_usec / 1000, ptm->tm_mon + 1, ptm->tm_mday);
 #endif
 
 	char source_buf[DAFAULT_LINE_SIZE] = { 0 };
-#ifdef WIN32
-	_snprintf(source_buf, sizeof(source_buf), "[%s:%ld]", filename, fileline);
-#else
-	snprintf(source_buf, sizeof(source_buf), "[%s:%ld]", pfilename, c_fileline);
-#endif
+	snprintf(source_buf, sizeof(source_buf), "[%s:%ld]", filename, fileline);
 
-	unsigned long	tid;
-#if ( defined _WIN32 )
-	tid = (unsigned long)GetCurrentThreadId();
-#elif ( defined __unix ) || ( defined _AIX ) || ( defined __linux__ ) || ( defined __hpux )
-#if ( defined _PTHREAD_H )
-	tid = (unsigned long)pthread_self();
-#endif
-#endif
+	unsigned long tid = pthread_self();
 
-	write_log("%s%s[%u]%s%s%s", time_buf, type_to_string(type), tid, source_buf, log_message, LOG_NEWLINE);
+	write_log("%s%s[%lu]%s%s%s", time_buf, type_to_string(type), tid, source_buf, log_message, LOG_NEWLINE);
 }
 
 void write_log(const char* format, ...)
@@ -152,15 +152,10 @@ void write_log(const char* format, ...)
 
 	va_list varArgs;
 	va_start(varArgs, format);
-#ifdef WIN32
 	vsnprintf(buffer, sizeof(buffer), format, varArgs);
-#else
-	vsnprintf(buffer, sizeof(buffer), format, varArgs);
-#endif
 	va_end(varArgs);
 
 	int length = strlen(buffer);
-
 	if (g_log_handle) {
 		if (g_log_handle->fd != NULL) {
 			fwrite(buffer, length, 1, g_log_handle->fd);

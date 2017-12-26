@@ -1,7 +1,10 @@
 #include "TESTMessageQueue.h"
 #include "MessageQueue.h"
-
+#ifdef WIN32
 #include <windows.h>
+#else
+#include <unistd.h>
+#endif
 
 TestUI::TestUI()
 {
@@ -82,8 +85,11 @@ void TestUI::looper_thread(void)
 		if (m_is_closed) {
 			break;
 		}
-
-		Sleep(10);
+#ifdef WIN32
+		Sleep(100);
+#else
+		usleep(1000 * 100);
+#endif
 	}
 }
 
@@ -110,7 +116,11 @@ void TestPlayer::Start(long owner_id, int duration)
 
 void TestPlayer::looper_thread(void)
 {
+#ifdef WIN32
 	Sleep(m_duration);
+#else
+	usleep(1000 * m_duration);
+#endif
 	CMessageQueue::GetInstance().Notify(m_owner_id, m_duration, 0);
 }
 
