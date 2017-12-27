@@ -56,7 +56,7 @@ void LogSetPath(char* filename)
 		time_t timestamp;
 		time(&timestamp);
 		struct tm *local_time = localtime(&timestamp);
-		snprintf(time_buf, sizeof(time_buf), "%4d_%2d_%2d_%2d_%2d_%2d", local_time->tm_year + 1900, local_time->tm_mon + 1,
+		snprintf(time_buf, sizeof(time_buf), "%4d_%02d_%02d_%02d_%02d_%02d", local_time->tm_year + 1900, local_time->tm_mon + 1,
 			local_time->tm_mday, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 
 		unsigned long pid = (long)getpid();
@@ -128,8 +128,8 @@ static void pre_write_log(char *filename, long fileline, const log_print_type_e 
 #ifdef WIN32
 	SYSTEMTIME win_time;
 	GetLocalTime(&win_time);
-	snprintf(time_buf, DAFAULT_LINE_SIZE, "[%02d:%02d:%02d.%03d %02d/%02d]",
-		win_time.wHour, win_time.wMinute, win_time.wSecond, win_time.wMilliseconds, win_time.wMonth, win_time.wDay);
+	snprintf(time_buf, DAFAULT_LINE_SIZE, "[%02d:%02d:%02d.%03d]",
+		win_time.wHour, win_time.wMinute, win_time.wSecond, win_time.wMilliseconds);
 #else
 	struct timeval tv;
 	gettimeofday (&tv, NULL);
@@ -141,7 +141,7 @@ static void pre_write_log(char *filename, long fileline, const log_print_type_e 
 	char source_buf[DAFAULT_LINE_SIZE] = { 0 };
 	snprintf(source_buf, sizeof(source_buf), "[%s:%ld]", filename, fileline);
 
-	unsigned long tid = pthread_self();
+	unsigned long tid = pthread_self();  //syscall(SYS_gettid);//
 
 	write_log("%s%s[%lu]%s%s%s", time_buf, type_to_string(type), tid, source_buf, log_message, LOG_NEWLINE);
 }

@@ -7,6 +7,8 @@ extern "C"{
 #include "iLog.h"
 }
 
+// g++ TESTiLog.cpp ../uvBaseLib/uvBaselib.a -I../uvBaseLib -g -O0 -std=c++11 -lpthread -o iLog
+
 CTestiLog::CTestiLog()
 {
 	m_is_closed = false;
