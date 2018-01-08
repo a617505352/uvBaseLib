@@ -25,6 +25,7 @@ public:
 
 public:
 	void Enqueue(CMessageHandle* handle, long session_id, int message_type);
+	void Dequeue(CMessageHandle* handle);
 	void Close(void);
 
 private:

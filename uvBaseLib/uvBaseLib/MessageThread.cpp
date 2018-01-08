@@ -1,3 +1,4 @@
+#include <windows.h>
 #include "MessageThread.h"
 #include "MessageHandle.h"
 
@@ -26,6 +27,20 @@ void CMessageThread::Enqueue(CMessageHandle* handle, long session_id, int messag
 	lock.unlock();
 
 	return;
+}
+
+void CMessageThread::Dequeue(CMessageHandle* handle)
+{
+	std::unique_lock<std::mutex> lock(m_msg_mtx);
+	std::deque<SigNode>::iterator iter = m_messages.begin();
+	for (; iter != m_messages.end();){
+		if ((*iter).handle == handle){
+			iter = m_messages.erase(iter);
+		} else {
+			iter++;
+		}
+	}
+	lock.unlock();
 }
 
 void CMessageThread::Close(void)
@@ -63,7 +78,9 @@ void CMessageThread::messge_looper_thread()
 		m_messages.pop_front();
 		lock.unlock();
 
-		sig_node.handle->handle_message(sig_node.session_id, sig_node.message_type);
+		if (sig_node.handle->m_own_id > 10000){
+			sig_node.handle->onMessage(sig_node.session_id, sig_node.message_type);
+		}
 	}
 	return;
 }

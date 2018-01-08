@@ -1,8 +1,4 @@
-#ifdef WIN32
 #include <windows.h>
-#else
-
-#endif
 #include "MessageHandle.h"
 
 
@@ -14,12 +10,7 @@ CMessageThread* CMessageHandle::m_message_thread = NULL;
 CMessageHandle::CMessageHandle()
 {
 	m_owner = NULL;
-
-#ifdef WIN32
 	m_own_id = InterlockedIncrement(&m_session_id);
-#else
-	m_own_id = __sync_fetch_and_add(&m_session_id, 1);
-#endif
 
 	std::unique_lock<std::mutex> ref_lock(m_refrence_mtx);
 	m_refrence_num++;
@@ -36,6 +27,9 @@ CMessageHandle::~CMessageHandle()
 	if (m_refrence_num == 0 && m_message_thread != NULL){
 		m_message_thread->Close();
 		m_message_thread = NULL;
+	}
+	if (m_message_thread != NULL){
+		m_message_thread->Dequeue(this);
 	}
 	ref_lock.unlock();
 }
@@ -58,7 +52,7 @@ void CMessageHandle::SetOwner(CMessageHandle* owner)
 	m_owner = owner;
 }
 
-void CMessageHandle::handle_message(long session_id, int message_type)
+void CMessageHandle::onMessage(long session_id, int message_type)
 {
 	return;
 }

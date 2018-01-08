@@ -17,7 +17,7 @@ public:
 	void SetOwner(CMessageHandle* owner);
 
 public:
-	virtual void handle_message(long session_id, int message_type);
+	virtual void onMessage(long session_id, int message_type);
 
 protected:
 	CMessageHandle*						m_owner;
@@ -26,9 +26,11 @@ private:
 	static long							m_session_id;
 	static long							m_refrence_num;
 	static std::mutex					m_refrence_mtx;
-	long								m_own_id;
 
 	static CMessageThread*				m_message_thread;
+
+public:
+	long								m_own_id;
 };	
 
 #endif
