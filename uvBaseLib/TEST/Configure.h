@@ -8,6 +8,8 @@
 
 //#define TEST_MESSAGE_HANDLE
 
-#define TEST_ILOG
+//#define TEST_ILOG
 
 //#define TEST_LOG
+
+#define TEST_DMP

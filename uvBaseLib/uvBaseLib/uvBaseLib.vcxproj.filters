@@ -34,6 +34,18 @@
     <Filter Include="源文件\Log">
       <UniqueIdentifier>{37925200-183d-42a3-bd56-2cdd28a4dc93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Timer">
+      <UniqueIdentifier>{fe557d10-8d8b-46af-909b-b7235700a0ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Timer">
+      <UniqueIdentifier>{f7a6500a-6f96-44fa-9662-4faa9893001b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Dmp">
+      <UniqueIdentifier>{db719c8c-a85e-48ac-9c41-5d06ee6b8bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Dmp">
+      <UniqueIdentifier>{99d98b6c-7a3b-49e3-9d4b-02cad8ea793b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageQueue.h">
@@ -63,6 +75,9 @@
     <ClInclude Include="logging.h">
       <Filter>头文件\Log</Filter>
     </ClInclude>
+    <ClInclude Include="ExceptionHandler.h">
+      <Filter>头文件\Dmp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -82,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="logging.cpp">
       <Filter>源文件\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionHandler.cpp">
+      <Filter>源文件\Dmp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -27,6 +27,9 @@
     <ClCompile Include="TESTiLog.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TestDmp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TESTMessageHandle.h">
@@ -42,6 +45,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TESTiLog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDmp.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

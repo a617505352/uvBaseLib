@@ -66,7 +66,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../uvBaseLib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TestDmp.cpp" />
     <ClCompile Include="TESTiLog.cpp" />
     <ClCompile Include="TESTLog.cpp" />
     <ClCompile Include="TESTMessageHandle.cpp" />
@@ -87,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configure.h" />
+    <ClInclude Include="TestDmp.h" />
     <ClInclude Include="TESTiLog.h" />
     <ClInclude Include="TESTLog.h" />
     <ClInclude Include="TESTMessageHandle.h" />

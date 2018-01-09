@@ -77,6 +77,9 @@ char* CTestiLog::key_to_string(int key)
 /////////////////////////////////////////////////////////////////////////////////
 
 #include "logging.h"
+#include "Configure.h"
+
+#ifdef TEST_ILOG
 
 static void log_callback(int level, const char * szFmt, va_list varg)
 {
@@ -154,3 +157,5 @@ int main(int argc, char* argv)
 
 	return 0;
 }
+
+#endif
