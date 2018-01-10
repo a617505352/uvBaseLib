@@ -1,5 +1,5 @@
-#ifndef _MESSAGE_HANDLE_H_
-#define _MESSAGE_HANDLE_H_
+#ifndef _UV_LIB_MESSAGE_HANDLE_H_
+#define _UV_LIB_MESSAGE_HANDLE_H_
 
 #include <mutex>
 

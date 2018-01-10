@@ -1,5 +1,5 @@
-#ifndef _CONNECT_H
-#define _CONNECT_H
+#ifndef _UV_LIB_CONNECT_H_
+#define _UV_LIB_CONNECT_H_
 
 #include <vector>
 #include <functional>

@@ -1,5 +1,5 @@
-#ifndef _LOCKING_QUEUE_H_
-#define _LOCKING_QUEUE_H_
+#ifndef _UV_LIB_LOCKING_QUEUE_H_
+#define _UV_LIB_LOCKING_QUEUE_H_
 
 #include <queue>
 #include <mutex>

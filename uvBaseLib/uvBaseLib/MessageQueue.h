@@ -1,5 +1,5 @@
-#ifndef _MESSAGE_QUEUE_H_
-#define _MESSAGE_QUEUE_H_
+#ifndef _UV_LIB_MESSAGE_QUEUE_H_
+#define _UV_LIB_MESSAGE_QUEUE_H_
 
 #include <vector>
 #include <functional>

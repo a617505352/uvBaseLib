@@ -1,5 +1,5 @@
-#ifndef _ILOG_H_
-#define _ILOG_H_
+#ifndef _UV_LIB_ILOG_H_
+#define _UV_LIB_ILOG_H_
 
 /**
 * ©¥©¥©¥©¥©¥ÉñÊÞ³öÃ»©¥©¥©¥©¥©¥©¥

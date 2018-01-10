@@ -1,5 +1,5 @@
-#ifndef _MESSAGE_THREAD_H_
-#define _MESSAGE_THREAD_H_
+#ifndef _UV_LIB_MESSAGE_THREAD_H_
+#define _UV_LIB_MESSAGE_THREAD_H_
 
 #include <deque>
 #include <mutex>

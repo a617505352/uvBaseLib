@@ -1,5 +1,5 @@
-﻿#ifndef _LOGGING_H_
-#define _LOGGING_H_
+﻿#ifndef _UV_LIB_LOGGING_H_
+#define _UV_LIB_LOGGING_H_
 
 #include <fstream>
 #include <string>

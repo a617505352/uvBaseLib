@@ -1,5 +1,5 @@
-#ifndef __INCLUDE_EXCEPTION_HANDLER_H__
-#define __INCLUDE_EXCEPTION_HANDLER_H__
+#ifndef _UV_LIB_INCLUDE_EXCEPTION_HANDLER_H_
+#define _UV_LIB_INCLUDE_EXCEPTION_HANDLER_H_
 #ifdef WIN32
 #include <string>
 
@@ -39,5 +39,5 @@ private:
 	void* m_addr_space; //µÿ÷∑ø’º‰
 };
 
-#endif//WIN32
-#endif//__INCLUDE_EXCEPTION_HANDLER_H__
+#endif
+#endif

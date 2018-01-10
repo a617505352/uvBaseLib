@@ -78,6 +78,9 @@
     <ClInclude Include="ExceptionHandler.h">
       <Filter>头文件\Dmp</Filter>
     </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>头文件\Timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -100,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="ExceptionHandler.cpp">
       <Filter>源文件\Dmp</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>源文件\Timer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

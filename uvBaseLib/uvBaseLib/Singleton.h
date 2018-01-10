@@ -1,5 +1,5 @@
-#ifndef _SINGLETON_H_
-#define _SINGLETON_H_
+#ifndef _UV_LIB_SINGLETON_H_
+#define _UV_LIB_SINGLETON_H_
 
 template <typename T>
 class Singleton
