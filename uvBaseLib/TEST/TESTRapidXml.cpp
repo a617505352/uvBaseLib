@@ -1,4 +1,5 @@
 #include <sstream>
+#include <iostream>
 #include "rapidxml.hpp"  
 #include "rapidxml_utils.hpp"  
 #include "rapidxml_print.hpp" 
@@ -9,14 +10,21 @@ using namespace rapidxml;
 
 #define PARSE_XML_NODE_VALUE( title, var )								\
 	node = root->first_node(title);										\
-	node_value = node->value();											\
-	if (NULL == node || node_value == NULL)								\
+	if (NULL == node)													\
 	{																	\
 		printf("failed to load %s, so set default value.\n", title);	\
 	}																	\
 	else																\
 	{																	\
-		sstr.clear(), sstr << node_value, sstr >> var;					\
+		node_value = node->value();										\
+		if(node_value == NULL)											\
+		{																\
+			printf("node value null, so set default value.\n", title);	\
+		}																\
+		else															\
+		{																\
+			sstr.clear(), sstr << node_value, sstr >> var;				\
+		}																\
 	}																	\
 
 CTestRapidXml::CTestRapidXml()
@@ -48,11 +56,11 @@ void CTestRapidXml::ParseXml(char* path)
 	printf("node name:%s, value:%d.\n", node->name(), atoi(node->value()));
 
 	std::string cms_addr;
-	PARSE_XML_NODE_VALUE("BLS", cms_addr);
-	printf("BLS listen addr:%s\n", cms_addr.c_str());
+	PARSE_XML_NODE_VALUE("Listen", cms_addr);
+	printf("CMS listen addr:%s\n", cms_addr.c_str());
 
 	int expires;
-	PARSE_XML_NODE_VALUE("Expires", expires);
+	PARSE_XML_NODE_VALUE("HeartBeat", expires);
 	printf("heartbeat:%d\n", expires);
 
 	int begin_port, end_port;
@@ -116,11 +124,68 @@ void CTestRapidXml::ParseXml(char* path)
 		}
 	}
 	printf("device type:%s, device name:%s\n", devide_type.c_str(), devide_name.c_str());
+
+	std::string display_mode;
+	std::string screen_type;
+	node = root->first_node("DisplayMode");
+	if (node != NULL){
+		display_mode = node->value();
+
+		attribute = node->first_attribute("fullscreen");
+		screen_type = attribute->value();
+	}
+	printf("display mode:%s, screen mode:%s\n", display_mode.c_str(), screen_type.c_str());
 }
 
 void CTestRapidXml::NewXml(char* path)
 {
+	xml_document<> doc;
+	xml_node<>* root = doc.allocate_node(rapidxml::node_pi, doc.allocate_string("xml version='1.0' encoding='utf-8'"));
+	doc.append_node(root);
 
+	xml_node<>* config  = doc.allocate_node(node_element, "config", "information");
+	doc.append_node(config);
+
+	xml_node<>* node = doc.allocate_node(node_element, "ServerId", "1001");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "Listen", "0.0.0.0:8088");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "HeartBeat", "60");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "TESTPortRange", NULL);
+	node->append_attribute(doc.allocate_attribute("begin", "10000"));
+	node->append_attribute(doc.allocate_attribute("end", "30000"));
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "SendSocketBufSize", "256");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "RecvSocketBufSize", "256");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "LogInfo", NULL);
+	node->append_attribute(doc.allocate_attribute("enable", "1"));
+	node->append_attribute(doc.allocate_attribute("level", "1"));
+	node->append_attribute(doc.allocate_attribute("filename", "./log/cms.log"));
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "Limits", "8");
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "TestInfomation", "information");
+	node->append_node(doc.allocate_node(node_element, "DeviceType", "M1"));
+	node->append_node(doc.allocate_node(node_element, "DeviceName", "0B603C"));
+	config->append_node(node);
+
+	node = doc.allocate_node(node_element, "DisplayMode", "screen mode");
+	node->append_attribute(doc.allocate_attribute("fullscreen", "false"));
+	config->append_node(node);
+
+	std::ofstream out(path);
+	out << doc;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -132,8 +197,8 @@ void CTestRapidXml::NewXml(char* path)
 int main()
 {
 	CTestRapidXml* rapidxml = new CTestRapidXml;
-	rapidxml->ParseXml("TCS.xml");
 	rapidxml->NewXml("CMS.xml");
+	rapidxml->ParseXml("CMS.xml");
 	delete rapidxml;
 
 	system("pause");
