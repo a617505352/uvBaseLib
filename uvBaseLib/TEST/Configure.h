@@ -12,4 +12,6 @@
 
 //#define TEST_LOG
 
-#define TEST_DMP
+//#define TEST_DMP
+
+#define TEST_RAPIDXML

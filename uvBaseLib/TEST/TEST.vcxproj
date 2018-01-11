@@ -44,6 +44,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>../depend/RapidXml/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,6 +87,7 @@
     <ClCompile Include="TESTLog.cpp" />
     <ClCompile Include="TESTMessageHandle.cpp" />
     <ClCompile Include="TESTMessageQueue.cpp" />
+    <ClCompile Include="TESTRapidXml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configure.h" />
@@ -93,6 +96,7 @@
     <ClInclude Include="TESTLog.h" />
     <ClInclude Include="TESTMessageHandle.h" />
     <ClInclude Include="TESTMessageQueue.h" />
+    <ClInclude Include="TESTRapidXml.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
