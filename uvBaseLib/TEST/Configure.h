@@ -14,4 +14,6 @@
 
 //#define TEST_DMP
 
-#define TEST_RAPIDXML
+//#define TEST_RAPIDXML
+
+#define TEST_RAPIDJSON
