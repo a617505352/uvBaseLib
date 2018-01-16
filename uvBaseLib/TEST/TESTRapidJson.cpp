@@ -1,13 +1,14 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
-#include "rapidjson/document.h"
 #include "rapidjson/writer.h"
+#include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/filewritestream.h"
-#include <rapidjson/istreamwrapper.h>
-#include <rapidjson/ostreamwrapper.h>
+#include "rapidjson/istreamwrapper.h"
+#include "rapidjson/ostreamwrapper.h"
+#include "rapidjson/document.h"
 #include "TESTRapidJson.h"
 
 #define logPrint(x) std::cout << #x " = " << (x) << std::endl
@@ -115,7 +116,8 @@ void CTestRapidJson::NewJson(char* path)
 	doc.AddMember("sites", sites, allocator);
 
 	StringBuffer buffer;
-	Writer<StringBuffer> writer(buffer);
+	PrettyWriter<StringBuffer> writer(buffer);	// easily readable by human
+	//Writer<StringBuffer> writer(buffer);		// without white-spaces,suitable for network transfer or storage
 	doc.Accept(writer);
 	std::cout << buffer.GetString() << std::endl;
 
@@ -127,7 +129,6 @@ void CTestRapidJson::NewJson(char* path)
 	fclose(out);
 }
 
-//中文乱码: fread读取中文有问题
 void CTestRapidJson::ParseJsonFromFile(char* path)
 {
 	// file opration, get file length 
