@@ -29,10 +29,105 @@ CTestRapidJson::~CTestRapidJson()
 
 void CTestRapidJson::NewJson(char* path)
 {
+	Document doc;
+	doc.SetObject();
+	Document::AllocatorType& allocator = doc.GetAllocator();
 
+	doc.AddMember("name", "rapidjson", allocator);
+	doc.AddMember("version", "1.0.1", allocator);
+	doc.AddMember("numbers", "1.12", allocator);
+	doc.AddMember("Major", 100, allocator);
+	doc.AddMember("description", "![](doc/logo/rapidjson.png)", allocator);
+	doc.AddMember("main", "include_dirs.js", allocator);
+
+	Value directories(kObjectType);
+	directories.AddMember("doc", "doc", allocator);
+	directories.AddMember("example", "example", allocator);
+	directories.AddMember("test", "test", allocator);
+	directories.AddMember("value", 99, allocator);
+	directories.AddMember("decimal", 0.15346, allocator);
+	doc.AddMember("directories", directories, allocator);
+
+	Value scripts(kObjectType);
+	scripts.AddMember("test", "echo \"Error: no test specified\" && exit 1", allocator);
+	doc.AddMember("scripts", scripts, allocator);
+
+	Value repository(kObjectType);
+	repository.AddMember("type", "git", allocator);
+	repository.AddMember("url", "git+https://github.com/Tencent/rapidjson.git", allocator);
+	doc.AddMember("repository", repository, allocator);
+
+	doc.AddMember("author", "", allocator);
+	doc.AddMember("license", "ISC", allocator);
+
+	Value bugs(kObjectType);
+	bugs.AddMember("url", "https://github.com/Tencent/rapidjson/issues", allocator);
+	doc.AddMember("bugs", bugs, allocator);
+
+	doc.AddMember("homepage", "https://github.com/Tencent/rapidjson#readme", allocator);
+
+	Value sites(kArrayType);
+	{
+		Value o(kObjectType);
+		o.AddMember("name", "Google", allocator);
+		Value a(kArrayType);
+		{
+			Value a1("Android");
+			Value a2("Google search");
+			Value a3("Google translate");
+			a.PushBack(a1, allocator);
+			a.PushBack(a2, allocator);
+			a.PushBack(a3, allocator);
+		}
+		o.AddMember("info", a, allocator);
+		sites.PushBack(o, allocator);
+	}
+	{
+		Value o(kObjectType);
+		o.AddMember("name", "Runoob", allocator);
+		Value a(kArrayType);
+		{
+			Value a1("菜鸟教程");
+			Value a2("菜鸟工具");
+			Value a3("菜鸟微信");
+			a.PushBack(a1, allocator);
+			a.PushBack(a2, allocator);
+			a.PushBack(a3, allocator);
+		}
+		o.AddMember("info", a, allocator);
+		sites.PushBack(o, allocator);
+	}
+	{
+		Value o(kObjectType);
+		o.AddMember("name", "subject", allocator);
+		Value a(kArrayType);
+		{
+			Value a1(96);
+			Value a2(98.5);
+			Value a3(100);
+			a.PushBack(a1, allocator);
+			a.PushBack(a2, allocator);
+			a.PushBack(a3, allocator);
+		}
+		o.AddMember("info", a, allocator);
+		sites.PushBack(o, allocator);
+	}
+	doc.AddMember("sites", sites, allocator);
+
+	StringBuffer buffer;
+	Writer<StringBuffer> writer(buffer);
+	doc.Accept(writer);
+	std::cout << buffer.GetString() << std::endl;
+
+	//write in file
+	FILE* out = fopen(path, "wb+");
+	std::string s = buffer.GetString();
+	fwrite(s.c_str(), 1, buffer.GetLength(), out);
+	fflush(out);
+	fclose(out);
 }
 
-//中文乱码
+//中文乱码: fread读取中文有问题
 void CTestRapidJson::ParseJsonFromFile(char* path)
 {
 	// file opration, get file length 
@@ -213,8 +308,9 @@ void CTestRapidJson::parsedoc(rapidjson::Document& doc)
 int main()
 {
 	CTestRapidJson* json = new CTestRapidJson;
-	json->ParseJsonFromMem("package.json");
-	json->ParseJsonFromFile("package.json");
+	json->NewJson("new.json");
+	json->ParseJsonFromMem("new.json");
+	json->ParseJsonFromFile("new.json");
 	system("pause");
 	return 0;
 }
