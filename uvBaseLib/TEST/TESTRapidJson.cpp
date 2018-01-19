@@ -209,7 +209,11 @@ void CTestRapidJson::parsedoc(rapidjson::Document& doc)
 		logPrint(pi);
 	}
 
-	std::string description = doc["description"].GetString();
+	std::string key = "description";
+	Value k;
+	k = StringRef(key.c_str(), key.length());
+
+	std::string description = doc[k].GetString();;//doc["description"].GetString();
 	logPrint(description);
 
 	std::string main = doc["main"].GetString();
