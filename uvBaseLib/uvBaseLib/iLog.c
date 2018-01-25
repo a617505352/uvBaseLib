@@ -161,6 +161,7 @@ void write_log(const char* format, ...)
 			fwrite(buffer, length, 1, g_log_handle->fd);
 			fflush(g_log_handle->fd);
 		}
+		//printf("%s\n", buffer);
 	}
 }
 

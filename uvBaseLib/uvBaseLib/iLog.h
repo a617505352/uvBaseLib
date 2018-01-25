@@ -121,10 +121,16 @@ void LogFatal(char *filename, long fileline, const char* format, ...);
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-#define iLogDebug( ... )		LogDebug( __FILE__ , __LINE__ , ##__VA_ARGS__ );
-#define iLogInfo( ... )			LogInfo( __FILE__ , __LINE__ , ##__VA_ARGS__ );
-#define iLogWarn( ... )			LogWarn( __FILE__ , __LINE__ , ##__VA_ARGS__ );
-#define iLogError( ... )		LogError( __FILE__ , __LINE__ , ##__VA_ARGS__ );
-#define iLogFata( ... )		    LogFatal( __FILE__ , __LINE__ , ##__VA_ARGS__ );
+#ifdef WIN32
+#define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
+#else
+#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
+#endif
+
+#define iLogDebug( ... )		LogDebug( __FILENAME__ , __LINE__ , ##__VA_ARGS__ );
+#define iLogInfo( ... )			LogInfo( __FILENAME__ , __LINE__ , ##__VA_ARGS__ );
+#define iLogWarn( ... )			LogWarn( __FILENAME__ , __LINE__ , ##__VA_ARGS__ );
+#define iLogError( ... )		LogError( __FILENAME__ , __LINE__ , ##__VA_ARGS__ );
+#define iLogFata( ... )		    LogFatal( __FILENAME__ , __LINE__ , ##__VA_ARGS__ );
 
 #endif

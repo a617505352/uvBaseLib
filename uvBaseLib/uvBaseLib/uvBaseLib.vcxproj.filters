@@ -81,6 +81,9 @@
     <ClInclude Include="Time.h">
       <Filter>头文件\Timer</Filter>
     </ClInclude>
+    <ClInclude Include="Atomic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>源文件\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Atomic.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

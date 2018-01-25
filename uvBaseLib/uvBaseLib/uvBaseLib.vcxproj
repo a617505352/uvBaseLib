@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Atomic.h" />
     <ClInclude Include="Connect.h" />
     <ClInclude Include="ExceptionHandler.h" />
     <ClInclude Include="iLog.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Atomic.cpp" />
     <ClCompile Include="ExceptionHandler.cpp" />
     <ClCompile Include="iLog.c" />
     <ClCompile Include="LOG.c" />
