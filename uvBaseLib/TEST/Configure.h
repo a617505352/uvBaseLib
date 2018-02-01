@@ -6,9 +6,9 @@
 
 //#define TEST_MESSAGE_QUEUE
 
-//#define TEST_MESSAGE_HANDLE
+#define TEST_MESSAGE_HANDLE
 
-#define TEST_ILOG
+//#define TEST_ILOG
 
 //#define TEST_LOG
 

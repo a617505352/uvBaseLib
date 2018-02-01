@@ -3,6 +3,9 @@
 
 #include "MessageHandle.h"
 
+class CLivechannel;
+class CClient;
+
 class CManager: public CMessageHandle
 {
 public:
@@ -13,11 +16,11 @@ public:
 	void Start();
 
 public:
-	void handle_message(long session_id, int message_type);
+	void onMessage(long session_id, int message_type);
 
 private:
-	bool is_closed;
-
+	bool			is_closed;
+	CLivechannel*	live_channel;
 };
 
 class CLivechannel : public CMessageHandle
@@ -30,11 +33,11 @@ public:
 	void Start();
 
 public:
-	void handle_message(long session_id, int message_type);
+	void onMessage(long session_id, int message_type);
 
 private:
 	bool is_closed;
-
+	CClient* client;
 };
 
 class CClient : public CMessageHandle
@@ -47,7 +50,7 @@ public:
 	void Start();
 
 public:
-	void handle_message(long session_id, int message_type);
+	void onMessage(long session_id, int message_type);
 
 };
 

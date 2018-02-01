@@ -17,14 +17,16 @@ CManager::~CManager()
 
 void CManager::Start()
 {
-	CLivechannel* livechannel = new CLivechannel;
-	livechannel->SetOwner(this);
-	livechannel->Start();
+	live_channel = new CLivechannel;
+	live_channel->SetOwner(this);
+	live_channel->Start();
 }
 
-void CManager::handle_message(long session_id, int message_type)
+void CManager::onMessage(long session_id, int message_type)
 {
 	printf("CManager: recv message:%d, session id:%d\n", message_type, session_id);
+	delete live_channel;
+	live_channel = NULL;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -41,21 +43,17 @@ CLivechannel::~CLivechannel()
 
 void CLivechannel::Start()
 {
-	CClient* client = new CClient;
+	client = new CClient;
 	client->SetOwner(this);
 	client->Start();
-#ifdef WIN32
-	Sleep(100);
-#else
-	usleep(1000 * 100);
-#endif
 }
 
-void CLivechannel::handle_message(long session_id, int message_type)
+void CLivechannel::onMessage(long session_id, int message_type)
 {
-	Notify(m_owner, GetID(), 20);
+	Notify(m_owner, GetID(), message_type+2);
+	//delete client;
+	//client = NULL;
 
-	is_closed = true;
 	printf("CLivechannel: recv message:%d, session id:%d\n", message_type, session_id);
 }
 
@@ -73,11 +71,13 @@ CClient::~CClient()
 
 void CClient::Start()
 {
-	Notify(m_owner, GetID(), 30);
+	Notify(m_owner, GetID(), 20);
+	Sleep(10);
+	Notify(m_owner, GetID(), 21);
 	return;
 }
 
-void CClient::handle_message(long session_id, int message_type)
+void CClient::onMessage(long session_id, int message_type)
 {
 	printf("CClient: recv message:%d, session id:%d\n", message_type, session_id);
 }
