@@ -46,6 +46,18 @@
     <Filter Include="源文件\Dmp">
       <UniqueIdentifier>{99d98b6c-7a3b-49e3-9d4b-02cad8ea793b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Algorithms">
+      <UniqueIdentifier>{8db3d01d-0643-4fd9-ac46-d0cbfa8e6d8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Algorithms">
+      <UniqueIdentifier>{4bc33b0d-e254-42e1-b9c1-f0361e292f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Algorithms\Sort">
+      <UniqueIdentifier>{4d410565-d00e-4fe6-862d-270e60dcdd0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Algorithms\Sort">
+      <UniqueIdentifier>{472fbb13-5364-413a-a825-2aa4641f1de6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageQueue.h">
@@ -84,6 +96,15 @@
     <ClInclude Include="Atomic.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\InsertionSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\MergeSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\Sort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -112,6 +133,15 @@
     </ClCompile>
     <ClCompile Include="Atomic.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\InsertionSort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\MergeSort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\Sort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

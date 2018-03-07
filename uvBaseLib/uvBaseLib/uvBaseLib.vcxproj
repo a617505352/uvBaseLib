@@ -78,6 +78,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms\SortAlgorithms\InsertionSort.h" />
+    <ClInclude Include="Algorithms\SortAlgorithms\MergeSort.h" />
+    <ClInclude Include="Algorithms\SortAlgorithms\Sort.h" />
     <ClInclude Include="Atomic.h" />
     <ClInclude Include="Connect.h" />
     <ClInclude Include="ExceptionHandler.h" />
@@ -92,6 +95,9 @@
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms\SortAlgorithms\InsertionSort.cpp" />
+    <ClCompile Include="Algorithms\SortAlgorithms\MergeSort.cpp" />
+    <ClCompile Include="Algorithms\SortAlgorithms\Sort.cpp" />
     <ClCompile Include="Atomic.cpp" />
     <ClCompile Include="ExceptionHandler.cpp" />
     <ClCompile Include="iLog.c" />
