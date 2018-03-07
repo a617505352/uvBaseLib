@@ -9,7 +9,8 @@ public:
 	CMergeSort();
 	virtual ~CMergeSort();
 
-private:
+public:
+	virtual void Sort(int* array, int array_num);
 
 };
 
