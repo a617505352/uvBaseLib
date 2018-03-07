@@ -105,6 +105,18 @@
     <ClInclude Include="Algorithms\SortAlgorithms\Sort.h">
       <Filter>头文件\Algorithms\Sort</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\QuickSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\HeapSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\SelectionSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms\SortAlgorithms\BubbleSort.h">
+      <Filter>头文件\Algorithms\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessageQueue.cpp">
@@ -141,6 +153,18 @@
       <Filter>源文件\Algorithms\Sort</Filter>
     </ClCompile>
     <ClCompile Include="Algorithms\SortAlgorithms\Sort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\QuickSort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\HeapSort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\SelectionSort.cpp">
+      <Filter>源文件\Algorithms\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\SortAlgorithms\BubbleSort.cpp">
       <Filter>源文件\Algorithms\Sort</Filter>
     </ClCompile>
   </ItemGroup>
