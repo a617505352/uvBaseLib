@@ -13,7 +13,7 @@ public:
 	virtual ~ISortBase();
 
 public:
-
+	virtual void Sort(int* array, int array_num);
 };
 
 #endif

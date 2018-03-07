@@ -9,3 +9,8 @@ ISortBase::~ISortBase()
 {
 
 }
+
+void ISortBase::Sort(int* array, int array_num)
+{
+	return;
+}

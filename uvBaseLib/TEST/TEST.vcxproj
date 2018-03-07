@@ -69,7 +69,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../uvBaseLib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../uvBaseLib/;../uvBaseLib/Algorithms/SortAlgorithms/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
@@ -89,6 +89,7 @@
     <ClCompile Include="TESTMessageQueue.cpp" />
     <ClCompile Include="TESTRapidJson.cpp" />
     <ClCompile Include="TESTRapidXml.cpp" />
+    <ClCompile Include="TESTSort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configure.h" />
@@ -99,6 +100,7 @@
     <ClInclude Include="TESTMessageQueue.h" />
     <ClInclude Include="TESTRapidJson.h" />
     <ClInclude Include="TESTRapidXml.h" />
+    <ClInclude Include="TESTSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
