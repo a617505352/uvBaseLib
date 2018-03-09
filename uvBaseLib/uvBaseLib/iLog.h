@@ -36,31 +36,6 @@
 #include <sys/types.h>
 #include <errno.h>
 
-#if ( defined _WIN32 )
-#include <windows.h>
-#include <share.h>
-#include <io.h>
-#include <fcntl.h>
-#elif ( defined __unix ) || ( defined _AIX ) || ( defined __linux__ ) || ( defined __hpux )
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/time.h>
-#include <syslog.h>
-#include <pthread.h>
-#include <sys/syscall.h>
-#endif
-
-#if ( defined _WIN32 )
-#define LOG_NEWLINE		"\r\n"
-#define LOG_NEWLINE_LEN		2
-#define snprintf		_snprintf
-#define getpid			GetCurrentProcessId
-#define pthread_self()	GetCurrentThreadId()
-#elif ( defined __unix ) || ( defined _AIX ) || ( defined __linux__ ) || ( defined __hpux )
-#define LOG_NEWLINE		"\n"
-#define LOG_NEWLINE_LEN		1
-#define pthread_self()	(syscall(SYS_gettid))
-#endif
 
 typedef enum log_save_type{
 	ILOG_SAVE_UNKNOW = 0,
@@ -95,6 +70,8 @@ typedef struct log_handle{
 	FILE*				fd;
 	logCallback			callback;
 
+	int					last_hour;
+
 }log_handle_t;
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -107,7 +84,7 @@ void LogThreshold(log_print_type_e level);
 
 void LogSetCallback(void(*callback)(int, const char*, va_list));
 
-void LogSetPath(char* filename);
+void LogSetPath(const char* filename);
 
 void LogDebug(char *filename, long fileline, const char* format, ...);
 

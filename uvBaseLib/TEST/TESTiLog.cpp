@@ -2,6 +2,7 @@
 
 #include <string>
 #include <random>
+#include <windows.h>
 
 extern "C"{
 #include "iLog.h"
@@ -45,10 +46,12 @@ void CTestiLog::looper_thread(int id)
 		std::random_device rd;
 		int key = rd() % 6 + 1;
 		double nums = rd() / 30;
-		iLogDebug("id:%d, %s, %f.", id, key_to_string(key), nums);
+		//iLogDebug("id:%d, %s, %f.", id, key_to_string(key), nums);
 		iLogInfo("id:%d, %s, %f.", id, key_to_string(key), nums);
-		iLogWarn("id:%d, %s, %f.", id, key_to_string(key), nums);
+		//iLogWarn("id:%d, %s, %f.", id, key_to_string(key), nums);
 		iLogError("id:%d, %s, %f.", id, key_to_string(key), nums);
+
+		//Sleep(100);
 	}
 }
 

@@ -4,7 +4,7 @@
 #include <memory>
 #include <thread>
 
-#define TEST_THREADS_NUMS 10
+#define TEST_THREADS_NUMS 30
 
 class CTestLog
 {
