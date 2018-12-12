@@ -10,6 +10,41 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\Atomic.h" />
+    <ClInclude Include="..\..\..\include\BubbleSort.h" />
+    <ClInclude Include="..\..\..\include\ExceptionHandler.h" />
+    <ClInclude Include="..\..\..\include\HeapSort.h" />
+    <ClInclude Include="..\..\..\include\iLog.h" />
+    <ClInclude Include="..\..\..\include\InsertionSort.h" />
+    <ClInclude Include="..\..\..\include\LockingQueue.h" />
+    <ClInclude Include="..\..\..\include\LOG.h" />
+    <ClInclude Include="..\..\..\include\logging.h" />
+    <ClInclude Include="..\..\..\include\MergeSort.h" />
+    <ClInclude Include="..\..\..\include\MessageHandle.h" />
+    <ClInclude Include="..\..\..\include\MessageQueue.h" />
+    <ClInclude Include="..\..\..\include\MessageThread.h" />
+    <ClInclude Include="..\..\..\include\QuickSort.h" />
+    <ClInclude Include="..\..\..\include\SelectionSort.h" />
+    <ClInclude Include="..\..\..\include\Sort.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Atomic.cpp" />
+    <ClCompile Include="..\..\..\src\BubbleSort.cpp" />
+    <ClCompile Include="..\..\..\src\ExceptionHandler.cpp" />
+    <ClCompile Include="..\..\..\src\HeapSort.cpp" />
+    <ClCompile Include="..\..\..\src\iLog.c" />
+    <ClCompile Include="..\..\..\src\InsertionSort.cpp" />
+    <ClCompile Include="..\..\..\src\LOG.c" />
+    <ClCompile Include="..\..\..\src\logging.cpp" />
+    <ClCompile Include="..\..\..\src\MergeSort.cpp" />
+    <ClCompile Include="..\..\..\src\MessageHandle.cpp" />
+    <ClCompile Include="..\..\..\src\MessageQueue.cpp" />
+    <ClCompile Include="..\..\..\src\MessageThread.cpp" />
+    <ClCompile Include="..\..\..\src\QuickSort.cpp" />
+    <ClCompile Include="..\..\..\src\SelectionSort.cpp" />
+    <ClCompile Include="..\..\..\src\Sort.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -44,6 +79,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\..\bin</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -69,6 +105,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,45 +114,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Algorithms\SortAlgorithms\BubbleSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\HeapSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\InsertionSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\MergeSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\QuickSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\SelectionSort.h" />
-    <ClInclude Include="Algorithms\SortAlgorithms\Sort.h" />
-    <ClInclude Include="Atomic.h" />
-    <ClInclude Include="Connect.h" />
-    <ClInclude Include="ExceptionHandler.h" />
-    <ClInclude Include="iLog.h" />
-    <ClInclude Include="LockingQueue.h" />
-    <ClInclude Include="LOG.h" />
-    <ClInclude Include="logging.h" />
-    <ClInclude Include="MessageHandle.h" />
-    <ClInclude Include="MessageQueue.h" />
-    <ClInclude Include="MessageThread.h" />
-    <ClInclude Include="Singleton.h" />
-    <ClInclude Include="Time.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Algorithms\SortAlgorithms\BubbleSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\HeapSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\InsertionSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\MergeSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\QuickSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\SelectionSort.cpp" />
-    <ClCompile Include="Algorithms\SortAlgorithms\Sort.cpp" />
-    <ClCompile Include="Atomic.cpp" />
-    <ClCompile Include="ExceptionHandler.cpp" />
-    <ClCompile Include="iLog.c" />
-    <ClCompile Include="LOG.c" />
-    <ClCompile Include="logging.cpp" />
-    <ClCompile Include="MessageHandle.cpp" />
-    <ClCompile Include="MessageQueue.cpp" />
-    <ClCompile Include="MessageThread.cpp" />
-    <ClCompile Include="Time.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

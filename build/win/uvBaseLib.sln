@@ -1,14 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uvBaseLib", "uvBaseLib\uvBaseLib.vcxproj", "{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TEST", "TEST\TEST.vcxproj", "{8C68A4A0-9209-4D56-879F-CD66DE2977F6}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4} = {0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TEST", "..\..\test\win\TEST.vcxproj", "{8C68A4A0-9209-4D56-879F-CD66DE2977F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

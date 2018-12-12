@@ -10,6 +10,25 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Configure.h" />
+    <ClInclude Include="..\TestDmp.h" />
+    <ClInclude Include="..\TESTiLog.h" />
+    <ClInclude Include="..\TESTLog.h" />
+    <ClInclude Include="..\TESTMessageHandle.h" />
+    <ClInclude Include="..\TESTMessageQueue.h" />
+    <ClInclude Include="..\TESTRapidJson.h" />
+    <ClInclude Include="..\TESTRapidXml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TestDmp.cpp" />
+    <ClCompile Include="..\TESTiLog.cpp" />
+    <ClCompile Include="..\TESTLog.cpp" />
+    <ClCompile Include="..\TESTMessageHandle.cpp" />
+    <ClCompile Include="..\TESTMessageQueue.cpp" />
+    <ClCompile Include="..\TESTRapidJson.cpp" />
+    <ClCompile Include="..\TESTRapidXml.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8C68A4A0-9209-4D56-879F-CD66DE2977F6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -69,7 +88,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../uvBaseLib/;../uvBaseLib/Algorithms/SortAlgorithms/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../include/;../../depend/;../../depend/RapidJson/;../../depend/RapidXml/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
@@ -78,30 +97,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>uvBaseLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Release/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../bin/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="TestDmp.cpp" />
-    <ClCompile Include="TESTiLog.cpp" />
-    <ClCompile Include="TESTLog.cpp" />
-    <ClCompile Include="TESTMessageHandle.cpp" />
-    <ClCompile Include="TESTMessageQueue.cpp" />
-    <ClCompile Include="TESTRapidJson.cpp" />
-    <ClCompile Include="TESTRapidXml.cpp" />
-    <ClCompile Include="TESTSort.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Configure.h" />
-    <ClInclude Include="TestDmp.h" />
-    <ClInclude Include="TESTiLog.h" />
-    <ClInclude Include="TESTLog.h" />
-    <ClInclude Include="TESTMessageHandle.h" />
-    <ClInclude Include="TESTMessageQueue.h" />
-    <ClInclude Include="TESTRapidJson.h" />
-    <ClInclude Include="TESTRapidXml.h" />
-    <ClInclude Include="TESTSort.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

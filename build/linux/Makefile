@@ -13,7 +13,7 @@ C++FLAGS = $(COMPILER_FLAGS) -c -g -fPIC -std=c++11
   
 TARGET=uvBaselib.a  
   
-INCLUDES = -I. 
+INCLUDES = -I../../src 
   
 C++FILES = MessageThread.cpp \
 	MessageQueue.cpp \
