@@ -21,5 +21,6 @@ void CInsertionSort::Sort(int* array, int array_num)
 		}
 		array[j + 1] = key;
 	}
+
 	return;
 }

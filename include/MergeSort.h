@@ -6,6 +6,10 @@
 * 归并排序算法:
 *	递归的分成两部分排序，然后合并;
 *
+* 升序排序
+*
+* https://en.wikipedia.org/wiki/Merge_sort
+*
 * MergeSort A[1,...,N]:
 *	1. if N=1 done
 *	2. recursively sort A[1,...,N/2] and A[N/2+1,...,N]
@@ -13,6 +17,8 @@
 *
 * 时间复杂度：O(N*lgN)
 * 空间复杂度：O(N)
+*
+* 采用分治法(Devide and Conquer)
 */
 
 #include "Sort.h"

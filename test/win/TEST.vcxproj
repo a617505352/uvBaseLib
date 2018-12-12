@@ -19,6 +19,7 @@
     <ClInclude Include="..\TESTMessageQueue.h" />
     <ClInclude Include="..\TESTRapidJson.h" />
     <ClInclude Include="..\TESTRapidXml.h" />
+    <ClInclude Include="..\TESTSort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TestDmp.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="..\TESTMessageQueue.cpp" />
     <ClCompile Include="..\TESTRapidJson.cpp" />
     <ClCompile Include="..\TESTRapidXml.cpp" />
+    <ClCompile Include="..\TESTSort.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8C68A4A0-9209-4D56-879F-CD66DE2977F6}</ProjectGuid>
