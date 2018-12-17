@@ -2,6 +2,7 @@
 #include "Sort.h"
 #include "InsertionSort.h"
 #include "MergeSort.h"
+#include "QuickSort.h"
 
 CTestSort::CTestSort()
 {
@@ -38,6 +39,8 @@ void CTestSort::SortTest(int* data, int size)
 	case sort_type_selection:
 		break;
 	case sort_type_quick:
+		sort = new CQuickSort;
+		sort->Sort(data, size);
 		break;
 	default:
 		break;
@@ -58,7 +61,7 @@ int main()
 	int size = sizeof(array) / sizeof(int);
 
 	CTestSort *t = new CTestSort;
-	t->SetType(sort_type_merge);
+	t->SetType(sort_type_quick);
 	t->SortTest(array, size);
 
 	for (int i = 0; i < size;i++)
