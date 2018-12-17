@@ -57,16 +57,35 @@ void CTestSort::SortTest(int* data, int size)
 
 int main()
 {
-	int array[] = {3,7,4,9,5,2,6,1};
-	int size = sizeof(array) / sizeof(int);
+	int array1[] = { 54, 38, 96, 23, 15, 72, 60, 45, 83 };//{ 3, 7, 4, 9, 5, 2, 6, 1 };//
+	int size1 = sizeof(array1) / sizeof(int);
+
+	int array2[] = { 3, 7, 4, 9, 5, 2, 6, 1 };
+	int size2 = sizeof(array2) / sizeof(int);
+
+	int array3[] = { 4,1,7,6,9,2,8,4,0,3,5 };
+	int size3 = sizeof(array3) / sizeof(int);
 
 	CTestSort *t = new CTestSort;
 	t->SetType(sort_type_quick);
-	t->SortTest(array, size);
-
-	for (int i = 0; i < size;i++)
+	t->SortTest(array1, size1);
+	for (int i = 0; i < size1;i++)
 	{
-		printf(" %d ", array[i]);
+		printf(" %d ", array1[i]);
+	}
+	printf("\n");
+
+	t->SortTest(array2, size2);
+	for (int i = 0; i < size2; i++)
+	{
+		printf(" %d ", array2[i]);
+	}
+	printf("\n");
+
+	t->SortTest(array3, size3);
+	for (int i = 0; i < size3; i++)
+	{
+		printf(" %d ", array3[i]);
 	}
 	printf("\n");
 
