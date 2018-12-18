@@ -5,6 +5,7 @@
 #include "QuickSort.h"
 #include "BubbleSort.h"
 #include "SelectionSort.h"
+#include "HeapSort.h"
 
 CTestSort::CTestSort()
 {
@@ -35,6 +36,8 @@ void CTestSort::SortTest(int* data, int size)
 		sort->Sort(data, size);
 		break;
 	case sort_type_heap:
+		sort = new CHeapSort;
+		sort->Sort(data, size);
 		break;
 	case sort_type_merge:
 		sort = new CMergeSort;
@@ -73,7 +76,7 @@ int main()
 	int size3 = sizeof(array3) / sizeof(int);
 
 	CTestSort *t = new CTestSort;
-	t->SetType(sort_type_selection);
+	t->SetType(sort_type_heap);
 	t->SortTest(array1, size1);
 	for (int i = 0; i < size1;i++)
 	{
@@ -93,7 +96,7 @@ int main()
 	{
 		printf(" %d ", array3[i]);
 	}
-	printf("\n");
+	printf("\n\n");
 
 	system("pause");
 
