@@ -3,6 +3,7 @@
 #include "InsertionSort.h"
 #include "MergeSort.h"
 #include "QuickSort.h"
+#include "BubbleSort.h"
 
 CTestSort::CTestSort()
 {
@@ -29,6 +30,8 @@ void CTestSort::SortTest(int* data, int size)
 		sort->Sort(data, size);
 		break;
 	case sort_type_bubble:
+		sort = new CBubbleSort;
+		sort->Sort(data, size);
 		break;
 	case sort_type_heap:
 		break;
@@ -67,7 +70,7 @@ int main()
 	int size3 = sizeof(array3) / sizeof(int);
 
 	CTestSort *t = new CTestSort;
-	t->SetType(sort_type_quick);
+	t->SetType(sort_type_bubble);
 	t->SortTest(array1, size1);
 	for (int i = 0; i < size1;i++)
 	{
