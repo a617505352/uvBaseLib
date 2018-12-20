@@ -12,10 +12,24 @@
 * 然后将a[1...n-2]重新调整为最大值；
 * 依次类推，直到整个数列都是有序的；
 *
+* 最大堆：根节点元素最大，父节点元素大于子节点元素
+*
+* 数组实现的最大堆性质：
+* 1、索引为i节点的左孩子的索引是 (2*i+1)
+* 2、索引为i节点的右孩子的索引是 (2*i+2)
+* 3、索引为i的父结点的索引是 floor((i-1)/2)
+*
 * https://en.wikipedia.org/wiki/Heapsort
 * http://www.cnblogs.com/skywang12345/p/3602162.html
 * https://blog.csdn.net/u013384984/article/details/79496052
 * 
+* 时间复杂度：O(N*lgN)
+* 空间复杂度: O(1)
+*
+* 属于不稳定算法
+*
+* 算法稳定性： a[i] = a[j]，排序后，a[i]和a[j]的顺序不变
+*
 */
 
 class CHeapSort : public ISortBase
@@ -26,6 +40,9 @@ public:
 
 public:
 	virtual void Sort(int* array, int array_num);
+
+private:
+	void adjustMaxHeap(int* array, int size);
 };
 
 #endif
