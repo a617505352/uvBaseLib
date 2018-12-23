@@ -9,27 +9,21 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="头文件\sort">
+      <UniqueIdentifier>{84704853-1a32-4dd8-8d21-3d33bf1a02f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\sort">
+      <UniqueIdentifier>{1e7bfe4c-26a6-464c-9bc9-59c9f01fcf1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\Atomic.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\BubbleSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\ExceptionHandler.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\HeapSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\InsertionSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\LockingQueue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\MergeSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\MessageHandle.h">
@@ -41,15 +35,6 @@
     <ClInclude Include="..\..\..\include\MessageThread.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\QuickSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\SelectionSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\Sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\iLog.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -59,24 +44,33 @@
     <ClInclude Include="..\..\..\include\logging.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\BubbleSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\HeapSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\InsertionSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\MergeSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\QuickSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\SelectionSort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\sort\Sort.h">
+      <Filter>头文件\sort</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Atomic.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\BubbleSort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\ExceptionHandler.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\HeapSort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\InsertionSort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\MergeSort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\MessageHandle.cpp">
@@ -88,15 +82,6 @@
     <ClCompile Include="..\..\..\src\MessageThread.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\QuickSort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\SelectionSort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\Sort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\LOG.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -105,6 +90,27 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\iLog.c">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\BubbleSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\HeapSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\InsertionSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\MergeSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\QuickSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\SelectionSort.cpp">
+      <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sort\Sort.cpp">
+      <Filter>源文件\sort</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

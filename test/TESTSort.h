@@ -3,17 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef enum sort_type{
-	sort_type_unknow = 0,
-	sort_type_insertion,
-	sort_type_bubble,
-	sort_type_heap,
-	sort_type_merge,
-	sort_type_selection,
-	sort_type_quick,
-	sort_type_max,
-} sort_type_e;
+#include <Sort.h>
 
 class CTestSort
 {

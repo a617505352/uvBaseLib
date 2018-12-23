@@ -1,11 +1,6 @@
 #include "TESTSort.h"
 #include "Sort.h"
-#include "InsertionSort.h"
-#include "MergeSort.h"
-#include "QuickSort.h"
-#include "BubbleSort.h"
-#include "SelectionSort.h"
-#include "HeapSort.h"
+
 
 CTestSort::CTestSort()
 {
@@ -24,38 +19,45 @@ void CTestSort::SetType(sort_type_e type)
 
 void CTestSort::SortTest(int* data, int size)
 {
-	ISortBase* sort = NULL;
+	ISortBase *sort = NULL;
+	CSortFactory *factory = new CSortFactory;
 
 	switch (m_type) {
 	case sort_type_insertion:
-		sort = new CInsertionSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	case sort_type_bubble:
-		sort = new CBubbleSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	case sort_type_heap:
-		sort = new CHeapSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	case sort_type_merge:
-		sort = new CMergeSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	case sort_type_selection:
-		sort = new CSelectionSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	case sort_type_quick:
-		sort = new CQuickSort;
+		factory->SetType(m_type);
+		sort = factory->GetObject();
 		sort->Sort(data, size);
 		break;
 	default:
 		break;
 	}
 
-	delete sort;
+	delete factory;
 }
 
 ///////////////////////////////////////////////////////////////

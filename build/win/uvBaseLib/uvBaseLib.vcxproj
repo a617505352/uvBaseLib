@@ -12,38 +12,38 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\Atomic.h" />
-    <ClInclude Include="..\..\..\include\BubbleSort.h" />
     <ClInclude Include="..\..\..\include\ExceptionHandler.h" />
-    <ClInclude Include="..\..\..\include\HeapSort.h" />
     <ClInclude Include="..\..\..\include\iLog.h" />
-    <ClInclude Include="..\..\..\include\InsertionSort.h" />
     <ClInclude Include="..\..\..\include\LockingQueue.h" />
     <ClInclude Include="..\..\..\include\LOG.h" />
     <ClInclude Include="..\..\..\include\logging.h" />
-    <ClInclude Include="..\..\..\include\MergeSort.h" />
     <ClInclude Include="..\..\..\include\MessageHandle.h" />
     <ClInclude Include="..\..\..\include\MessageQueue.h" />
     <ClInclude Include="..\..\..\include\MessageThread.h" />
-    <ClInclude Include="..\..\..\include\QuickSort.h" />
-    <ClInclude Include="..\..\..\include\SelectionSort.h" />
-    <ClInclude Include="..\..\..\include\Sort.h" />
+    <ClInclude Include="..\..\..\include\sort\BubbleSort.h" />
+    <ClInclude Include="..\..\..\include\sort\HeapSort.h" />
+    <ClInclude Include="..\..\..\include\sort\InsertionSort.h" />
+    <ClInclude Include="..\..\..\include\sort\MergeSort.h" />
+    <ClInclude Include="..\..\..\include\sort\QuickSort.h" />
+    <ClInclude Include="..\..\..\include\sort\SelectionSort.h" />
+    <ClInclude Include="..\..\..\include\sort\Sort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Atomic.cpp" />
-    <ClCompile Include="..\..\..\src\BubbleSort.cpp" />
     <ClCompile Include="..\..\..\src\ExceptionHandler.cpp" />
-    <ClCompile Include="..\..\..\src\HeapSort.cpp" />
     <ClCompile Include="..\..\..\src\iLog.c" />
-    <ClCompile Include="..\..\..\src\InsertionSort.cpp" />
     <ClCompile Include="..\..\..\src\LOG.c" />
     <ClCompile Include="..\..\..\src\logging.cpp" />
-    <ClCompile Include="..\..\..\src\MergeSort.cpp" />
     <ClCompile Include="..\..\..\src\MessageHandle.cpp" />
     <ClCompile Include="..\..\..\src\MessageQueue.cpp" />
     <ClCompile Include="..\..\..\src\MessageThread.cpp" />
-    <ClCompile Include="..\..\..\src\QuickSort.cpp" />
-    <ClCompile Include="..\..\..\src\SelectionSort.cpp" />
-    <ClCompile Include="..\..\..\src\Sort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\BubbleSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\HeapSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\InsertionSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\MergeSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\QuickSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\SelectionSort.cpp" />
+    <ClCompile Include="..\..\..\src\sort\Sort.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}</ProjectGuid>
@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>../../../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../include/;../../../include/sort/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

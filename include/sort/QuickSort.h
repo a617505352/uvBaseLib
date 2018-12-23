@@ -1,7 +1,6 @@
 #ifndef _UV_LIB_QUICK_SORT_H_
 #define _UV_LIB_QUICK_SORT_H_
 
-#include <stdio.h>
 #include "Sort.h"
 
 /**

@@ -1,5 +1,4 @@
 #include "HeapSort.h"
-#include <stdio.h>
 
 #define SWAP(a, b) \
 	int tmp = a; \
