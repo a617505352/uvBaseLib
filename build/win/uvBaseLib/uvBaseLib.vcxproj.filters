@@ -15,6 +15,30 @@
     <Filter Include="源文件\sort">
       <UniqueIdentifier>{1e7bfe4c-26a6-464c-9bc9-59c9f01fcf1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\list">
+      <UniqueIdentifier>{c846258c-7465-48bd-a35c-612b8cb87a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\list">
+      <UniqueIdentifier>{34493f38-da89-42e5-9e97-15f65d122635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\list\slist">
+      <UniqueIdentifier>{65f7cfcd-ee83-4c8a-a00d-1f55c2513d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\list\slist">
+      <UniqueIdentifier>{78ffbbc7-996b-4310-b3a0-07b79cdcea87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\list\dlist">
+      <UniqueIdentifier>{0af4d456-f4ce-464f-91ab-ca65fd945daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\list\dlist">
+      <UniqueIdentifier>{c21d0381-37fb-475b-bbe1-c4e33aba91dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\tree">
+      <UniqueIdentifier>{d7b61ea9-e4e6-4356-a240-e0b7e28f638b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\tree">
+      <UniqueIdentifier>{e724de16-84fc-44f0-b1a9-5c9245eca1e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\Atomic.h">
@@ -65,6 +89,15 @@
     <ClInclude Include="..\..\..\include\sort\Sort.h">
       <Filter>头文件\sort</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\list\slist.h">
+      <Filter>头文件\list\slist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\list\dlist.h">
+      <Filter>头文件\list\dlist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\tree\RBTree.h">
+      <Filter>头文件\tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Atomic.cpp">
@@ -111,6 +144,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\sort\Sort.cpp">
       <Filter>源文件\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\list\slist.cpp">
+      <Filter>源文件\list\slist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\list\dlist.cpp">
+      <Filter>源文件\list\dlist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tree\RBTree.cpp">
+      <Filter>源文件\tree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

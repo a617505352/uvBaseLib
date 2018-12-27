@@ -14,6 +14,8 @@
     <ClInclude Include="..\..\..\include\Atomic.h" />
     <ClInclude Include="..\..\..\include\ExceptionHandler.h" />
     <ClInclude Include="..\..\..\include\iLog.h" />
+    <ClInclude Include="..\..\..\include\list\dlist.h" />
+    <ClInclude Include="..\..\..\include\list\slist.h" />
     <ClInclude Include="..\..\..\include\LockingQueue.h" />
     <ClInclude Include="..\..\..\include\LOG.h" />
     <ClInclude Include="..\..\..\include\logging.h" />
@@ -27,11 +29,14 @@
     <ClInclude Include="..\..\..\include\sort\QuickSort.h" />
     <ClInclude Include="..\..\..\include\sort\SelectionSort.h" />
     <ClInclude Include="..\..\..\include\sort\Sort.h" />
+    <ClInclude Include="..\..\..\include\tree\RBTree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Atomic.cpp" />
     <ClCompile Include="..\..\..\src\ExceptionHandler.cpp" />
     <ClCompile Include="..\..\..\src\iLog.c" />
+    <ClCompile Include="..\..\..\src\list\dlist.cpp" />
+    <ClCompile Include="..\..\..\src\list\slist.cpp" />
     <ClCompile Include="..\..\..\src\LOG.c" />
     <ClCompile Include="..\..\..\src\logging.cpp" />
     <ClCompile Include="..\..\..\src\MessageHandle.cpp" />
@@ -44,6 +49,7 @@
     <ClCompile Include="..\..\..\src\sort\QuickSort.cpp" />
     <ClCompile Include="..\..\..\src\sort\SelectionSort.cpp" />
     <ClCompile Include="..\..\..\src\sort\Sort.cpp" />
+    <ClCompile Include="..\..\..\src\tree\RBTree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}</ProjectGuid>
@@ -105,7 +111,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>../../../include/;../../../include/sort/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../include/;../../../include/sort/;../../../include/list/;../../../include/tree/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

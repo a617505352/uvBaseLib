@@ -38,6 +38,9 @@
     <ClInclude Include="..\TESTSort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\TESTSlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\TestDmp.cpp">
@@ -62,6 +65,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\TESTSort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TESTSlist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -18,4 +18,6 @@
 
 //#define TEST_RAPIDJSON
 
-#define TEST_SORT_ALGORITHMS
+//#define TEST_SORT_ALGORITHMS
+
+#define TEST_SLIST
