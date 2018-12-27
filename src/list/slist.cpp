@@ -102,6 +102,24 @@ int CSlist::DeleteAll(const int &value)
 
 int CSlist::Reserve(void)
 {
+	if (m_head == NULL) {
+		return -1;
+	}
+
+	Node* prev = m_head;
+	Node* cur = prev->next;
+
+	while(1) {
+		if (cur == NULL || cur->next == NULL) {
+			break;
+		}
+
+		Node* tmp = cur->next;
+		cur->next = cur->next->next;
+		prev->next = tmp;
+		tmp->next = cur;
+	}
+
 	return 0;
 }
 
@@ -122,6 +140,15 @@ Node* CSlist::LookUp(const int &value)
 	}
 
 	return NULL;
+}
+
+Node* CSlist::Head()
+{
+	if (m_head == NULL) {
+		return NULL;
+	}
+
+	return m_head->next;
 }
 
 void CSlist::Print()

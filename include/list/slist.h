@@ -21,6 +21,7 @@ public:
 	int DeleteAll(const int &value);
 	int Reserve(void);
 	Node* LookUp(const int &value);
+	Node* Head();
 	void Print();
 
 private:
