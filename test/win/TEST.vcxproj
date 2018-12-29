@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Configure.h" />
+    <ClInclude Include="..\TESTDlist.h" />
     <ClInclude Include="..\TestDmp.h" />
     <ClInclude Include="..\TESTiLog.h" />
     <ClInclude Include="..\TESTLog.h" />
@@ -23,6 +24,7 @@
     <ClInclude Include="..\TESTSort.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\TESTDlist.cpp" />
     <ClCompile Include="..\TestDmp.cpp" />
     <ClCompile Include="..\TESTiLog.cpp" />
     <ClCompile Include="..\TESTLog.cpp" />

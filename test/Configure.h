@@ -20,4 +20,6 @@
 
 //#define TEST_SORT_ALGORITHMS
 
-#define TEST_SLIST
+//#define TEST_SLIST
+
+#define TEST_DLIST
