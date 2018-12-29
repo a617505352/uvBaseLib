@@ -70,6 +70,7 @@ int CDlist::DeleteAll(const int &value)
 		return -1;
 	}
 
+	bool is_exist = false;
 	Node* tmp = NULL;
 	Node* cur = m_head;
 	for (; cur != NULL;) {
@@ -88,14 +89,18 @@ int CDlist::DeleteAll(const int &value)
 			}
 
 			free_node(tmp);
+			is_exist = true;
 		} else {
 			cur = cur->next;
 		}
 	}
 
-	printf("can't find value in double-link list.\n");
-
-	return -2;
+	if (is_exist) {
+		return 0;
+	} else {
+		printf("can't find value in double-link list.\n");
+		return -2;
+	}
 }
 
 int CDlist::Clear(void)

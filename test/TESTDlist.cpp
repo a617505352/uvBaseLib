@@ -113,7 +113,7 @@ int main()
 	
 	test.ClearTest();
 	test.PrintTest();
-#if 0
+
 	int array2[] = { 3, 7, 4, 9, 5, 2, 6, 1 };
 	int size2 = sizeof(array2) / sizeof(int);
 	for (int i = 0; i < size2; i++) {
@@ -136,7 +136,7 @@ int main()
 	test.PrintTest();
 	test.DeleteAllTest(4);
 	test.PrintTest();
-#endif
+
 	return 0;
 }
 
