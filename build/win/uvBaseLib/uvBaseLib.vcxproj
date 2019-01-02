@@ -30,6 +30,7 @@
     <ClInclude Include="..\..\..\include\sort\SelectionSort.h" />
     <ClInclude Include="..\..\..\include\sort\Sort.h" />
     <ClInclude Include="..\..\..\include\tree\RBTree.h" />
+    <ClInclude Include="..\..\..\include\tree\tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Atomic.cpp" />
@@ -50,6 +51,7 @@
     <ClCompile Include="..\..\..\src\sort\SelectionSort.cpp" />
     <ClCompile Include="..\..\..\src\sort\Sort.cpp" />
     <ClCompile Include="..\..\..\src\tree\RBTree.cpp" />
+    <ClCompile Include="..\..\..\src\tree\tree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0180C0B6-FB48-4DA0-900A-8255B3CE1CB4}</ProjectGuid>
