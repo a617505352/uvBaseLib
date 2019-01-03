@@ -98,7 +98,7 @@
     <ClInclude Include="..\..\..\include\tree\RBTree.h">
       <Filter>头文件\tree</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\tree\tree.h">
+    <ClInclude Include="..\..\..\include\tree\BinaryTree.h">
       <Filter>头文件\tree</Filter>
     </ClInclude>
   </ItemGroup>
@@ -157,7 +157,7 @@
     <ClCompile Include="..\..\..\src\tree\RBTree.cpp">
       <Filter>源文件\tree</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\tree\tree.cpp">
+    <ClCompile Include="..\..\..\src\tree\BinaryTree.cpp">
       <Filter>源文件\tree</Filter>
     </ClCompile>
   </ItemGroup>
